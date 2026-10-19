@@ -1,0 +1,75 @@
+1).last login-------
+SELECT *
+FROM user
+ORDER BY last_login DESC
+LIMIT 1;
+
+
+Crud operation
+
+2).create -
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(30),
+    email VARCHAR(50),
+    last_login DATETIME
+);
+
+
+3.)insert--
+INSERT INTO users VALUES
+(1, 'Rahul', 'rahul@gmail.com', '2026-10-05 10:30:00'),
+(2, 'Amit', 'amit@gmail.com', '2026-10-08 09:15:00'),
+(3, 'Priya', 'priya@gmail.com', '2026-10-07 18:20:00'),
+(4, 'Neha', 'neha@gmail.com', '2026-10-06 14:10:00');
+
+
+4).search--
+SELECT * FROM users
+WHERE name = 'Amit';
+
+5).update--
+UPDATE users
+SET last_login = '2026-10-08 12:30:00'
+WHERE id = 2;
+
+6).delete---DELETE FROM users
+WHERE id = 4;
+
+
+7).foreign key create----
+
+
+8).Dob add column-----
+ALTER TABLE users
+ADD COLUMN dob DATE;
+
+
+9).joins all---
+
+10).  2nd salary---limit
+SELECT salary
+FROM emp
+ORDER BY salary DESC
+LIMIT 1 ;
+
+
+11). 2nd salary---without limit
+
+SELECT *
+FROM emp
+WHERE salary = (
+    SELECT MAX(salary)
+    FROM emp
+    WHERE salary < (SELECT MAX(salary) FROM emp)
+);
+
+
+12).meritList----
+
+SELECT 
+    id,
+    name,
+    (maths + physics + chemistry) AS total
+FROM marksheet
+ORDER BY total DESC;
